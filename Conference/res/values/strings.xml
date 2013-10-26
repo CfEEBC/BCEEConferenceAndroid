@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_sessions">Sessions</string>
     <string name="title_activity_list">List</string>
+    <string name="title_activity_expandable_list">ExpandableList</string>
+    <string name="title_activity_conferences">Conferences</string>
 
 </resources>

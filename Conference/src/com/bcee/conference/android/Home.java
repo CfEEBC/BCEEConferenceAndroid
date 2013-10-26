@@ -1,5 +1,7 @@
 package com.bcee.conference.android;
 
+import com.bcee.conference.android.models.DataCentre;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ public class Home extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.home);
+		DataCentre dc = DataCentre.createDefaultInstance();
 		initvars();
 	}
 
@@ -26,7 +29,7 @@ public class Home extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent i = new Intent(v.getContext(),List.class);
+				Intent i = new Intent(v.getContext(),ExpandableList.class);
 				startActivityForResult(i,0);
 			}
 		});
