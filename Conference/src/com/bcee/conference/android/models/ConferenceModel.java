@@ -1,6 +1,9 @@
 package com.bcee.conference.android.models;
 
-public class ConferenceModel implements Comparable<ConferenceModel>{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ConferenceModel implements Comparable<ConferenceModel>, Parcelable{
 
 	private String name;
 	private String description;
@@ -127,5 +130,43 @@ public class ConferenceModel implements Comparable<ConferenceModel>{
 		// TODO Auto-generated method stub
 		return this.name.compareTo(c.getName());
 	}
+
+	public ConferenceModel(Parcel in){
+		String[] data = new String[8];
+		
+		in.readStringArray(data);
+		this.name = data[0];
+		this.biography = data[1];
+		this.description = data[2];
+		this.location = data[3];
+		this.speakers = data[4];
+		this.START_TIME = data[5];
+		this.END_TIME = data[6];
+		this.SURVEY_LINK = data[7];
+	}
+	
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		dest.writeStringArray(new String[] {this.name,this.biography,this.description,
+				this.location,this.speakers,this.START_TIME,this.END_TIME,this.SURVEY_LINK});
+	}
+	
+	//http://stackoverflow.com/questions/7181526/example-of-implementing-parcelable
+	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+         public ConferenceModel createFromParcel(Parcel in) {
+			return new ConferenceModel(in);
+         }
+
+         public ConferenceModel[] newArray(int size) {
+             return new ConferenceModel[size];
+         }
+    };
 	
 }
