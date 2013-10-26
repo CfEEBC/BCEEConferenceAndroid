@@ -63,7 +63,7 @@ public class DataCentre {
 				String descrip = obj.getString("description");
 				String speakers = obj.getString("speakers");
 				String bio = obj.getString("biography");
-				String survey = obj.getString("survey_link");
+				String survey = httpCheck(obj.getString("survey_link"));
 				ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
 				System.out.println(models==null);
 				models.add(c);
@@ -79,6 +79,12 @@ public class DataCentre {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private static String httpCheck(String s){
+		if(s.substring(0,6).equals("http://"))
+			return s;
+		else return ("http://" + s);
 	}
 	
 	public ConferenceModel findConference(String start, String name){
