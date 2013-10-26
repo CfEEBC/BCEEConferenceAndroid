@@ -17,7 +17,6 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bcee.conference.android.models.ConferenceModel;
 import com.bcee.conference.android.models.DataCentre;
@@ -61,6 +60,23 @@ public class ExpandableList extends Activity {
 			sessions.put(s,DataCentre.getDataByTime(s));
 			categories.add(s);
 		}
+		
+		/*elv = (ExpandableListView) findViewById(R.id.expandableELV1);
+		adapter = new TimeExpandableListAdapter(this, categories, sessions);
+		elv.setAdapter(adapter);
+		
+		elv.setOnChildClickListener(new OnChildClickListener(){
+			
+			@Override
+			public boolean onChildClick(ExpandableListView parent, View v,
+                    int groupPosition, int childPosition, long id) {
+				ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
+				Intent i = new Intent(v.getContext(),Conferences.class);
+				i.putExtra("conference", c);
+				startActivityForResult(i,0);
+                return false;
+            }
+		});*/
 	}
 
 	@Override
