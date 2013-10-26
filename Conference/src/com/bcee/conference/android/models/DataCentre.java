@@ -22,9 +22,19 @@ import android.util.Log;
 
 public class DataCentre {
 
+	/**
+	 * the DataCentre
+	 */
 	private static DataCentre defaultInstance;
+	/**
+	 * Collection of ConferenceModels
+	 */
 	private static Collection <ConferenceModel> models = new ArrayList<ConferenceModel>();
 
+	/**
+	 * instance of DataCentre 
+	 * @return  the designated DataCentre for this app
+	 */
 	public static DataCentre createDefaultInstance() {
 		// TODO Auto-generated method stub
 		if(defaultInstance==null){
@@ -33,6 +43,12 @@ public class DataCentre {
 		}
 		return defaultInstance;
 	}
+	
+	/**
+	 * get conferences that starts at a particular time 
+	 * @param time conference's start time
+	 * @return a list of names of conferences starting at a particular time 
+	 */
 	
 	public static List<String> getDataByTime(String time) {
 		// TODO Auto-generated method stub
@@ -46,18 +62,23 @@ public class DataCentre {
 	}
 
 	//Parse info methods
+	/**
+	 * Starts parsing our data that we get from the server to populate fields in our ConferenceModel
+	 */
 	public static void parseData(){
-		HttpClient client = new DefaultHttpClient();
+		HttpClient client = new DefaultHttpClient();  
 		String url = "http://bceeconference.appspot.com/machine";   
 		HttpGet httpget = new HttpGet(url);
 		ResponseHandler<String> handler = new BasicResponseHandler();
 		try{
 			String jsonString = client.execute(httpget,handler);
 			JSONArray arr = new JSONArray(jsonString);
+			//  gets the fields 
 			for(int i=0;i<arr.length();i++){
 				JSONObject obj = (JSONObject) arr.get(i);
 				String name = (String) obj.get("session_name");
 				String location = (String) obj.get("location");
+				// truncate strings into "MM-DD hh:mm"
 				String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
 				String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
 				String descrip = obj.getString("description");
