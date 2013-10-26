@@ -1,6 +1,8 @@
 package com.bcee.conference.android;
 
 import java.util.*;
+import java.util.List;
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,6 +23,10 @@ import android.widget.TextView;
 import com.bcee.conference.android.models.ConferenceModel;
 import com.bcee.conference.android.models.DataCentre;
 
+/**
+ * Lists the sessions of the schedule
+ *
+ */
 public class ExpandableList extends Activity {
 
 	private ExpandableListView elv;
@@ -34,6 +40,20 @@ public class ExpandableList extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.expandable_list);
 		initvars();
+	}
+
+	/**
+	 * Initializes the variables and sets OnChildClickListner
+	 */
+	private void initvars() {
+		// TODO Auto-generated method stub
+		categories = new ArrayList<String>();
+		sessions = new LinkedHashMap<String,List<String>>();
+		for(String s:dc.getStartTimes()){	
+			sessions.put(s,DataCentre.getDataByTime(s));
+			categories.add(s);
+		}
+		
 		elv = (ExpandableListView) findViewById(R.id.expandableELV1);
 		adapter = new TimeExpandableListAdapter(this, categories, sessions);
 		elv.setAdapter(adapter);
@@ -52,41 +72,12 @@ public class ExpandableList extends Activity {
 		});
 	}
 
-	private void initvars() {
-		// TODO Auto-generated method stub
-		categories = new ArrayList<String>();
-		sessions = new LinkedHashMap<String,List<String>>();
-		for(String s:dc.getStartTimes()){	
-			sessions.put(s,DataCentre.getDataByTime(s));
-			categories.add(s);
-		}
-		
-		/*elv = (ExpandableListView) findViewById(R.id.expandableELV1);
-		adapter = new TimeExpandableListAdapter(this, categories, sessions);
-		elv.setAdapter(adapter);
-		
-		elv.setOnChildClickListener(new OnChildClickListener(){
-			
-			@Override
-			public boolean onChildClick(ExpandableListView parent, View v,
-                    int groupPosition, int childPosition, long id) {
-				ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
-				Intent i = new Intent(v.getContext(),Conferences.class);
-				i.putExtra("conference", c);
-				startActivityForResult(i,0);
-                return false;
-            }
-		});*/
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.expandable_list, menu);
-		return true;
-	}
-
-	//http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
+	/**
+	 * ExtendalbleListAdapter class
+	 * 
+	 * @author http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
+	 *
+	 */
 	class TimeExpandableListAdapter extends BaseExpandableListAdapter {
 		 
 	    private Context _context;
