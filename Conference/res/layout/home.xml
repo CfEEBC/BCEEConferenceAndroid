@@ -16,13 +16,11 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/bccfee_logo_rgb_hires" />
 
-    <TextView
-        android:id="@+id/welcomeTV1"
+    <Button
+        android:id="@+id/welcomeB1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcomePic"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Welcome" />
-
+        android:text="Proceed to event" />
 </RelativeLayout>
