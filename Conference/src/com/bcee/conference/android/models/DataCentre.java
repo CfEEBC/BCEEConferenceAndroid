@@ -3,7 +3,6 @@ package com.bcee.conference.android.models;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -20,6 +19,14 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
+/**
+ * 
+ * Data Centre that stores all ConferenceModels with the information parsed from server and provides methods to 
+ * access the data 
+ * 
+ * @author 
+ *
+ */
 public class DataCentre {
 
 	/**
@@ -87,9 +94,8 @@ public class DataCentre {
 				String survey = httpCheck(obj.getString("survey_link"));
 				ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
 				System.out.println(models==null);
-				models.add(c);
+				models.add(c);  // adds the new ConferenceModel to our collection
 				Log.d("tag",start);
-				
 			}
 		} catch(JSONException e){
 			Log.d("LOG_TAG",e.getMessage());
@@ -102,12 +108,23 @@ public class DataCentre {
 		}
 	}
 	
+	/**
+	 * Checks if the string url has http header
+	 * @param s the url string
+	 * @return the url string with if it has a proper http header; otherwise add the header 
+	 */
 	private static String httpCheck(String s){
 		if(s.substring(0,6).equals("http://"))
 			return s;
 		else return ("http://" + s);
 	}
 	
+	/**
+	 * Find the ConferenceModel by startTime and name 
+	 * @param start Conference startTime
+	 * @param name  Conference name 
+	 * @return the ConferenceModel with the corresponding startTime and name when found; otherwise return null
+	 */
 	public ConferenceModel findConference(String start, String name){
 		for(ConferenceModel c:models){
 			if(c.getSTART_TIME().equals(start) && c.getName().equals(name)){
@@ -117,6 +134,10 @@ public class DataCentre {
 		return null;
 	}
 	
+	/**
+	 * Get all the startTime as a collection of strings
+	 * @return all startTime as collection of strings
+	 */
 	public Set<String> getStartTimes(){
 		Set<String> s = new TreeSet<String>();
 		for(ConferenceModel c:models){
