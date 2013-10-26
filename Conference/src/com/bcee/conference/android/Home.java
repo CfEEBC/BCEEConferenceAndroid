@@ -20,7 +20,7 @@ public class Home extends Activity {
 
 	private void initvars() {
 		// TODO Auto-generated method stub
-		Button sessions = (Button) findViewById(R.id.welcomeB1);
+		Button sessions = (Button) findViewById(R.id.welcomeIV1);
 		sessions.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
