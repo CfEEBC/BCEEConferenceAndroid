@@ -27,9 +27,8 @@ public class ExpandableList extends Activity {
 	private ExpandableListView elv;
 	private TimeExpandableListAdapter adapter;
 	private DataCentre dc = DataCentre.createDefaultInstance();
-	private Set<String> startTimes;
 	private List<String> categories;
-	private HashMap<String,List<String>> sessions;
+	private LinkedHashMap<String,List<String>> sessions;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +44,9 @@ public class ExpandableList extends Activity {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
                     int groupPosition, int childPosition, long id) {
-				//ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
+				ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
 				Intent i = new Intent(v.getContext(),Conferences.class);
+				i.putExtra("conference", c);
 				startActivityForResult(i,0);
                 return false;
             }
@@ -55,9 +55,9 @@ public class ExpandableList extends Activity {
 
 	private void initvars() {
 		// TODO Auto-generated method stub
-		startTimes = dc.getStartTimes();
-		
-		for(String s:startTimes){
+		categories = new ArrayList<String>();
+		sessions = new LinkedHashMap<String,List<String>>();
+		for(String s:dc.getStartTimes()){	
 			sessions.put(s,DataCentre.getDataByTime(s));
 			categories.add(s);
 		}
@@ -76,10 +76,10 @@ public class ExpandableList extends Activity {
 	    private Context _context;
 	    private List<String> _listDataHeader; // header titles
 	    // child data in format of header title, child title
-	    private HashMap<String, List<String>> _listDataChild;
+	    private LinkedHashMap<String, List<String>> _listDataChild;
 	 
 	    public TimeExpandableListAdapter(Context context, List<String> listDataHeader,
-	            HashMap<String, List<String>> listChildData) {
+	            LinkedHashMap<String, List<String>> listChildData) {
 	        this._context = context;
 	        this._listDataHeader = listDataHeader;
 	        this._listDataChild = listChildData;
