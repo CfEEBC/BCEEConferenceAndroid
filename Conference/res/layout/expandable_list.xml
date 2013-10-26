@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".List" >
+    tools:context=".ExpandableList" >
 
-    <ListView
-        android:id="@+id/listLV1"
+    <ExpandableListView
+        android:id="@+id/expandableELV1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
-    </ListView>
+    </ExpandableListView>
 
 </RelativeLayout>
