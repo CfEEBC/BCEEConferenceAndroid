@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.bcee.conference.android.Sessions"
+            android:label="@string/title_activity_sessions" >
+        </activity>
+        <activity
+            android:name="com.bcee.conference.android.List"
+            android:label="@string/title_activity_list" >
+        </activity>
     </application>
 
 </manifest>

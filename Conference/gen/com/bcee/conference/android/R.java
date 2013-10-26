@@ -21,21 +21,34 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int bccfee_logo_rgb_hires=0x7f020000;
+        public static final int bccfee_logo_rgb_lowres=0x7f020001;
+        public static final int bccfee_logo_rgb_medres=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int welcome=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int action_settings=0x7f080004;
+        public static final int listLV1=0x7f080003;
+        public static final int welcomeIV1=0x7f080000;
+        public static final int welcomePic=0x7f080002;
+        public static final int welcomeTV1=0x7f080001;
     }
     public static final class layout {
         public static final int home=0x7f030000;
+        public static final int list=0x7f030001;
     }
     public static final class menu {
         public static final int home=0x7f070000;
+        public static final int list=0x7f070001;
+        public static final int sessions=0x7f070002;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
+        public static final int title_activity_list=0x7f050004;
+        public static final int title_activity_sessions=0x7f050003;
     }
     public static final class style {
         /** 
