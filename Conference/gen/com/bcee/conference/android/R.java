@@ -11,7 +11,8 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int exp_list_back=0x7f040001;
+        public static final int exp_list_back=0x7f040002;
+        public static final int splash_background=0x7f040001;
         public static final int text_colour_orange=0x7f040000;
     }
     public static final class dimen {
@@ -32,7 +33,6 @@ public final class R {
         public static final int bccfee_logo_rgb_medres=0x7f020004;
         public static final int ic_launcher=0x7f020005;
         public static final int logo=0x7f020006;
-        public static final int welcome=0x7f020007;
     }
     public static final class id {
         public static final int action_settings=0x7f09000e;

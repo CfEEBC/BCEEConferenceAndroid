@@ -2,5 +2,6 @@
 <resources>
 
     <color name="text_colour_orange">#BE7826</color>
+    <color name="splash_background">#F7FBF7</color>
 
 </resources>
