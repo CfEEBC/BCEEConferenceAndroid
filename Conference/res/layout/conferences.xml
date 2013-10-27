@@ -26,7 +26,7 @@
                 android:text="@string/textview_string" />
 
             <TextView
-                android:id="@+id/conferencesTime"
+                android:id="@+id/conferencesLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesName"
@@ -34,10 +34,10 @@
                 android:text="@string/textview_string" />
 
             <TextView
-                android:id="@+id/conferencesLocation"
+                android:id="@+id/conferencesTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/conferencesTime"
+                android:layout_below="@+id/conferencesLocation"
                 android:padding="8sp"
                 android:text="@string/textview_string" />
 
