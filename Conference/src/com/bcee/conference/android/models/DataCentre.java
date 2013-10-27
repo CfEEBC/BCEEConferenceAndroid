@@ -43,7 +43,6 @@ public class DataCentre {
 	 * @return  the designated DataCentre for this app
 	 */
 	public static DataCentre createDefaultInstance() {
-		// TODO Auto-generated method stub
 		if(defaultInstance==null){
 			defaultInstance = new DataCentre();
 			DataCentre.parseData();
@@ -58,7 +57,6 @@ public class DataCentre {
 	 */
 
 	public static List<String> getDataByTime(String time) {
-		// TODO Auto-generated method stub
 		List<String> arr = new ArrayList<String>();
 		for(ConferenceModel c:models){
 			if(c.getSTART_TIME().equals(time)){
@@ -98,13 +96,10 @@ public class DataCentre {
 						models.add(c); 
 					}
 				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
 			}

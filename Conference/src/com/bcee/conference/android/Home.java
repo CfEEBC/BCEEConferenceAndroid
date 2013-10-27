@@ -23,13 +23,11 @@ public class Home extends Activity {
 	}
 
 	private void initvars() {
-		// TODO Auto-generated method stub
 		TextView sessions = (TextView) findViewById(R.id.welcomeB1);
 		sessions.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent i = new Intent(v.getContext(),ExpandableList.class);
 				startActivityForResult(i,0);
 			}
@@ -39,7 +37,6 @@ public class Home extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.google.com"));
 				startActivity(i);
 				

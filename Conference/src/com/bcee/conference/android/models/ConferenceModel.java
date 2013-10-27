@@ -136,7 +136,6 @@ public class ConferenceModel implements Comparable<ConferenceModel>, Parcelable{
 	 */
 	@Override
 	public int compareTo(ConferenceModel c) {
-		// TODO Auto-generated method stub
 		return this.name.compareTo(c.getName());
 	}
 	
@@ -198,7 +197,6 @@ public class ConferenceModel implements Comparable<ConferenceModel>, Parcelable{
 	
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -207,7 +205,6 @@ public class ConferenceModel implements Comparable<ConferenceModel>, Parcelable{
 	 */
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		// TODO Auto-generated method stub
 		dest.writeStringArray(new String[] {this.name,this.biography,this.description,
 				this.location,this.speakers,this.START_TIME,this.END_TIME,this.SURVEY_LINK});
 	}

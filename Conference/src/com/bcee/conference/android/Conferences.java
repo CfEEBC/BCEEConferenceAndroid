@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
-import android.view.Menu;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Button;
@@ -31,8 +29,6 @@ public class Conferences extends Activity {
 	 * Corresponds the views in Conferences with the xml
 	 */
 	private void initvars() {
-		// TODO Auto-generated method stub
-		
 		TextView name = (TextView) findViewById(R.id.conferencesName);
 		//name.setText("Name:     " + c.getName());
 		name.setText(c.getName());
@@ -51,11 +47,11 @@ public class Conferences extends Activity {
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
 		surveyButton.setOnClickListener(new View.OnClickListener() {
 			
-			// Found on Oct 26 from
-			// http://stackoverflow.com/questions/2201917/how-can-i-open-a-url-in-androids-web-browser-from-my-application
+			/**
+			 * @author http://stackoverflow.com/questions/2201917/how-can-i-open-a-url-in-androids-web-browser-from-my-application
+			 */
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				if(!URLUtil.isValidUrl(c.getSURVEY_LINK())){
 					Toast.makeText(getApplicationContext(), "Invalid URL, could not find " + c.getSURVEY_LINK(), Toast.LENGTH_LONG).show();
 					return;
@@ -64,13 +60,6 @@ public class Conferences extends Activity {
 				startActivity(browserIntent);
 			}
 		});
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.conferences, menu);
-		return true;
 	}
 
 }
