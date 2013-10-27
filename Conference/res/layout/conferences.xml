@@ -5,11 +5,10 @@
     tools:context=".Conferences" >
 
     <ScrollView
-        android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="30sp"
-        android:layout_alignParentLeft="true" >
+        android:layout_alignParentLeft="true"
+        android:padding="30sp" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -20,17 +19,17 @@
                 android:id="@+id/conferencesName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:padding="5sp"
+                android:text="@string/textview_string"
                 android:textSize="15sp"
-                android:padding="8sp"
-                android:text="@string/textview_string" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/conferencesLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesName"
-                android:padding="8sp"
+                android:padding="5sp"
                 android:text="@string/textview_string" />
 
             <TextView
@@ -38,42 +37,53 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesLocation"
-                android:padding="8sp"
+                android:textColor="@color/time_text"
+                android:padding="5sp"
+                android:text="@string/textview_string" />
+
+            <TextView
+                android:id="@+id/conferencesDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/conferencesTime"
+                android:text="Description"
+                android:padding="5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/conferencesDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="9sp"
+                android:layout_below="@+id/conferencesDes"
                 android:text="@string/textview_string" />
 
             <TextView
                 android:id="@+id/conferencesSpeakers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/conferencesLocation"
-                android:padding="8sp"
+                android:padding="5sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/conferencesDescription"
                 android:text="@string/textview_string" />
 
             <TextView
                 android:id="@+id/conferencesBiography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="8sp"
                 android:layout_below="@+id/conferencesSpeakers"
-                android:padding="8sp"
                 android:text="@string/textview_string" />
-
-            <TextView
-                android:id="@+id/conferencesDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/conferencesBiography"
-                android:padding="8sp"
-                android:text="@string/textview_string" />
-
-            <Button
+            
+            <Button 
                 android:id="@+id/conferencesB1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/conferencesDescription"
+                android:layout_below="@+id/conferencesBiography"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/text_colour_orange"
                 android:background="@android:color/transparent"
-                android:text="Complete Survey" />
+                android:text="Complete Survey"/>
         </RelativeLayout>
     </ScrollView>
 

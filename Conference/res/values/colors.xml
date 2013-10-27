@@ -3,5 +3,6 @@
 
     <color name="text_colour_orange">#BE7826</color>
     <color name="splash_background">#F7FBF7</color>
+    <color name="time_text">#A6A6A6</color>
 
 </resources>

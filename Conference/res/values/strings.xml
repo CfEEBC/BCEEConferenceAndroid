@@ -4,7 +4,7 @@
     <string name="app_name">BCCEE Conference</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_expandable_list">Sessions</string>
-    <string name="title_activity_conferences">Conferences</string>
+    <string name="title_activity_conferences">Session Detail</string>
     <string name="textview_string">TextView</string>
 
 </resources>
