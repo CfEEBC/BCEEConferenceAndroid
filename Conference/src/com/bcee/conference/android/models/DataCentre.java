@@ -140,7 +140,8 @@ public class DataCentre {
 	 * @return the url string with if it has a proper http header; otherwise add the header 
 	 */
 	private static String httpCheck(String s){
-		System.out.println("url : " + s);
+		if(s.length() < 7)
+			return ("http://" + s);
 		if(s.substring(0,8).equals("https://") || s.substring(0,7).equals("http://"))
 			return s;
 		else return ("http://" + s);
