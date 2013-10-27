@@ -214,8 +214,9 @@ public class ConferenceModel implements Comparable<ConferenceModel>, Parcelable{
 	
 	/**
 	 * creating the parcel by calling the this.constructor for the parcel
+	 * 
+	 * @author http://stackoverflow.com/questions/7181526/example-of-implementing-parcelable 
 	 */
-	//http://stackoverflow.com/questions/7181526/example-of-implementing-parcelable
 	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
          public ConferenceModel createFromParcel(Parcel in) {
 			return new ConferenceModel(in);

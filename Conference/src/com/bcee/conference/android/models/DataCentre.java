@@ -77,7 +77,7 @@ public class DataCentre {
 		String url = JSON_URL;   
 		final HttpGet httpget = new HttpGet(url);
 		final ResponseHandler<String> handler = new BasicResponseHandler();
-		new Thread(new Runnable() {
+		Thread t = new Thread(new Runnable() {
 			public void run() {
 				try {
 					String jsonString = client.execute(httpget,handler);
@@ -108,7 +108,12 @@ public class DataCentre {
 					e.printStackTrace();
 				} 
 			}
-		}).start();
+		});
+		t.start();
+		System.out.println(t.isAlive());
+		t.interrupt();
+		Log.d("tag","stopped?");
+		System.out.println(t.isAlive());
 	}
 
 	/**
