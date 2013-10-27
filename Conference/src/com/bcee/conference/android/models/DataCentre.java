@@ -89,7 +89,10 @@ public class DataCentre {
 		return s;
 	}
 
-
+	/**
+	 * Class to Async parse via JSON
+	 *
+	 */
 	public static final class AsyncParse extends AsyncTask <String, Void, Void>{
 
 		@Override
@@ -129,7 +132,6 @@ public class DataCentre {
 			} 
 			return null;
 		}
-
 	}
 
 	/**
