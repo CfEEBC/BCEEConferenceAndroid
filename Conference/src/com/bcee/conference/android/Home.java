@@ -36,11 +36,6 @@ public class Home extends Activity implements UpdateData {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.home);
 		DataCentre.createDefaultInstance();
-		/*if(needUpdate(lastUpdatedTime)){
-			new DataCentre.AsyncParse().execute(JSON_URL,currentTime);
-			Date now1 = new Date();
-			lastUpdatedTime = new SimpleDateFormat("yyyy-MM-dd HH").format(now1); 
-		}*/
 		new DataCentre.AsyncParse().execute(JSON_URL,currentTime);
 		initvars();
 	}
