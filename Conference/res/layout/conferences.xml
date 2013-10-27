@@ -8,6 +8,7 @@
         android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:padding="30sp"
         android:layout_alignParentLeft="true" >
 
         <RelativeLayout
@@ -19,7 +20,9 @@
                 android:id="@+id/conferencesName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:padding="8sp"
                 android:text="@string/textview_string" />
 
             <TextView
@@ -27,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesName"
-                android:layout_centerHorizontal="true"
+                android:padding="8sp"
                 android:text="@string/textview_string" />
 
             <TextView
@@ -35,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesTime"
+                android:padding="8sp"
                 android:text="@string/textview_string" />
 
             <TextView
@@ -42,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesLocation"
+                android:padding="8sp"
                 android:text="@string/textview_string" />
 
             <TextView
@@ -49,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesSpeakers"
+                android:padding="8sp"
                 android:text="@string/textview_string" />
 
             <TextView
@@ -56,6 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesBiography"
+                android:padding="8sp"
                 android:text="@string/textview_string" />
 
             <Button
@@ -64,7 +71,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesDescription"
                 android:layout_centerHorizontal="true"
-                android:text="@string/textview_string" />
+                android:textColor="@color/text_colour_orange"
+                android:background="@android:color/transparent"
+                android:text="Complete Survey" />
         </RelativeLayout>
     </ScrollView>
 
