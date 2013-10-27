@@ -123,7 +123,7 @@ public class DataCentre {
 	 * @return the url string with if it has a proper http header; otherwise add the header 
 	 */
 	private static String httpCheck(String s){
-		if(s.substring(0,6).equals("http://"))
+		if(s.substring(0,6).equals("http://") || s.substring(0,7).equals("https://") )
 			return s;
 		else return ("http://" + s);
 	}
