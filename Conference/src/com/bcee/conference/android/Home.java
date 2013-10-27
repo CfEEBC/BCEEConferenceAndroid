@@ -10,10 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-/**
- * Splash screen and leads into the list of sessions
- *
- */
 public class Home extends Activity {
 
 	@Override
@@ -21,15 +17,12 @@ public class Home extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.home);
+		DataCentre dc = DataCentre.createDefaultInstance();
 		initvars();
 	}
 
-	/**
-	 * Initializes variables and OnClickListner
-	 */
 	private void initvars() {
 		// TODO Auto-generated method stub
-		DataCentre dc = DataCentre.createDefaultInstance();
 		Button sessions = (Button) findViewById(R.id.welcomeB1);
 		sessions.setOnClickListener(new View.OnClickListener() {
 			

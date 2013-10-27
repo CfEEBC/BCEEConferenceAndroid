@@ -27,7 +27,7 @@ public class Conferences extends Activity {
 	}
 
 	/**
-	 * Setups up the view corresponding to the ConferenceModel
+	 * Corresponds the views in Conferences with the xml
 	 */
 	private void initvars() {
 		// TODO Auto-generated method stub
@@ -62,6 +62,13 @@ public class Conferences extends Activity {
 				startActivity(browserIntent);
 			}
 		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.conferences, menu);
+		return true;
 	}
 
 }
