@@ -18,17 +18,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 /**
  * 
- * Data Centre that stores all ConferenceModels with the information parsed from server and provides methods to 
- * access the data 
+ * Data Centre - stores all ConferenceModels and provides methods to these conferences
  *
  */
 public class DataCentre {
-
-	private static final String JSON_URL = "http://bceeconference.appspot.com/machine";
 
 	/**
 	 * the DataCentre
@@ -44,10 +40,8 @@ public class DataCentre {
 	 * @return  the designated DataCentre for this app
 	 */
 	public static DataCentre createDefaultInstance() {
-		if(defaultInstance==null){
+		if(defaultInstance==null)
 			defaultInstance = new DataCentre();
-			DataCentre.parseData();
-		}
 		return defaultInstance;
 	}
 
@@ -67,60 +61,7 @@ public class DataCentre {
 		return arr;
 	}
 
-	//Parse info methods
-	/**
-	 * Starts parsing our data that we get from the server to populate fields in our ConferenceModel
-	 */
-	public static void parseData(){
-		//new AsyncParse().execute(JSON_URL);
-		System.out.println("done with parsing");
-		System.out.println("models size : "+ models.size());
-
-		/*		Thread t = new Thread(new Runnable() {
-			public void run() {
-				try {
-					String jsonString = client.execute(httpget,handler);
-					JSONArray arr = new JSONArray(jsonString);
-					//  gets the fields 
-					for(int i=0;i<arr.length();i++){
-						JSONObject obj = (JSONObject) arr.get(i);
-						String name = (String) obj.get("session_name");
-						String location = (String) obj.get("location");
-						// truncate strings into "MM-DD hh:mm"
-						String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
-						String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
-						String descrip = obj.getString("description");
-						String speakers = obj.getString("speakers");
-						String bio = obj.getString("biography");
-						String survey = httpCheck(obj.getString("survey_link"));
-						ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
-						models.add(c); 
-					}
-				} catch (ClientProtocolException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (JSONException e) {
-					e.printStackTrace();
-				} 
-			}
-		});
-		t.start();*/
-
-	}
-
-	/**
-	 * Checks if the string url has http header
-	 * @param s the url string
-	 * @return the url string with if it has a proper http header; otherwise add the header 
-	 */
-	private static String httpCheck(String s){
-		System.out.println("url : " + s);
-		if(s.substring(0,8).equals("https://") || s.substring(0,7).equals("http://"))
-			return s;
-		else return ("http://" + s);
-	}
-
+	
 	/**
 	 * Find the ConferenceModel by startTime and name 
 	 * @param start Conference startTime
@@ -155,7 +96,6 @@ public class DataCentre {
 		protected Void doInBackground(String... arg0) {
 			HttpClient client = new DefaultHttpClient();  
 			HttpGet httpget = new HttpGet(arg0[0]);
-			System.out.println("the url in asyncparse : "+ arg0[0]);
 			ResponseHandler<String> handler = new BasicResponseHandler();
 			try {
 				String jsonString = client.execute(httpget,handler);
@@ -183,10 +123,20 @@ public class DataCentre {
 				e.printStackTrace();
 			} 
 			return null;
-			// TODO Auto-generated method stub
-
 		}
 
+	}
+	
+	/**
+	 * Helper method that checks if the string url has http header
+	 * @param s the url string
+	 * @return the url string with if it has a proper http header; otherwise add the header 
+	 */
+	private static String httpCheck(String s){
+		System.out.println("url : " + s);
+		if(s.substring(0,8).equals("https://") || s.substring(0,7).equals("http://"))
+			return s;
+		else return ("http://" + s);
 	}
 
 }
