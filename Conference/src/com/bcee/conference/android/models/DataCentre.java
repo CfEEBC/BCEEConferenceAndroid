@@ -105,10 +105,10 @@ public class DataCentre {
 			}
 		});
 		t.start();
-		System.out.println(t.isAlive());
+		/*System.out.println(t.isAlive());
 		t.interrupt();
 		Log.d("tag","stopped?");
-		System.out.println(t.isAlive());
+		System.out.println(t.isAlive());*/
 	}
 
 	/**
