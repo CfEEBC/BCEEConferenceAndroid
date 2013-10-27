@@ -14,11 +14,26 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/bccfee_logo_rgb_hires" />
 
-    <Button
+    <TextView
+        android:id="@+id/conferenceGeneralSurvey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcomeIV1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Conference Survey"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#31913D" />
+
+    <TextView
         android:id="@+id/welcomeB1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/welcomeIV1"
         android:layout_centerHorizontal="true"
-        android:text="Proceed to event" />
+        android:layout_marginBottom="64dp"
+        android:text="Enter"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#31913D" />
+
 </RelativeLayout>
