@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 /**
@@ -71,11 +72,11 @@ public class DataCentre {
 	 * Starts parsing our data that we get from the server to populate fields in our ConferenceModel
 	 */
 	public static void parseData(){
-		final HttpClient client = new DefaultHttpClient();  
-		String url = JSON_URL;   
-		final HttpGet httpget = new HttpGet(url);
-		final ResponseHandler<String> handler = new BasicResponseHandler();
-		Thread t = new Thread(new Runnable() {
+		//new AsyncParse().execute(JSON_URL);
+		System.out.println("done with parsing");
+		System.out.println("models size : "+ models.size());
+
+		/*		Thread t = new Thread(new Runnable() {
 			public void run() {
 				try {
 					String jsonString = client.execute(httpget,handler);
@@ -104,11 +105,8 @@ public class DataCentre {
 				} 
 			}
 		});
-		t.start();
-		/*System.out.println(t.isAlive());
-		t.interrupt();
-		Log.d("tag","stopped?");
-		System.out.println(t.isAlive());*/
+		t.start();*/
+
 	}
 
 	/**
@@ -148,6 +146,47 @@ public class DataCentre {
 			s.add(c.getSTART_TIME());
 		}
 		return s;
+	}
+
+
+	public static final class AsyncParse extends AsyncTask <String, Void, Void>{
+
+		@Override
+		protected Void doInBackground(String... arg0) {
+			HttpClient client = new DefaultHttpClient();  
+			HttpGet httpget = new HttpGet(arg0[0]);
+			System.out.println("the url in asyncparse : "+ arg0[0]);
+			ResponseHandler<String> handler = new BasicResponseHandler();
+			try {
+				String jsonString = client.execute(httpget,handler);
+				JSONArray arr = new JSONArray(jsonString);
+				//  gets the fields 
+				for(int i=0;i<arr.length();i++){
+					JSONObject obj = (JSONObject) arr.get(i);
+					String name = (String) obj.get("session_name");
+					String location = (String) obj.get("location");
+					// truncate strings into "MM-DD hh:mm"
+					String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
+					String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
+					String descrip = obj.getString("description");
+					String speakers = obj.getString("speakers");
+					String bio = obj.getString("biography");
+					String survey = httpCheck(obj.getString("survey_link"));
+					ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
+					models.add(c); 
+				}
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			} 
+			return null;
+			// TODO Auto-generated method stub
+
+		}
+
 	}
 
 }

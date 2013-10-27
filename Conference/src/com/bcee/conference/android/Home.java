@@ -12,6 +12,8 @@ import android.view.Window;
 import android.widget.TextView;
 
 public class Home extends Activity {
+	private static final String JSON_URL = "http://bceeconference.appspot.com/machine";
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class Home extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.home);
 		DataCentre.createDefaultInstance();
+		new DataCentre.AsyncParse().execute(JSON_URL);
 		initvars();
 	}
 
