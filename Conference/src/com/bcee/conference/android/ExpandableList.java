@@ -1,17 +1,20 @@
 package com.bcee.conference.android;
 
 import java.util.*;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.TextView;
@@ -21,7 +24,6 @@ import com.bcee.conference.android.models.DataCentre;
 
 public class ExpandableList extends Activity {
 
-	
 	private ExpandableListView elv;
 	private TimeExpandableListAdapter adapter;
 	private DataCentre dc = DataCentre.createDefaultInstance();
