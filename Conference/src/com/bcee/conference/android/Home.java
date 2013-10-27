@@ -10,8 +10,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -22,9 +20,6 @@ public class Home extends Activity implements UpdateData {
 	private static final String JSON_URL = "http://bceeconference.appspot.com/machine";
 	private String lastUpdatedTime;  // check if everything is larger than empty string
 	private String currentTime;
-
-	
- 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +34,6 @@ public class Home extends Activity implements UpdateData {
 		new DataCentre.AsyncParse().execute(JSON_URL,currentTime);
 		initvars();
 	}
-
 	
 	@Override 
 	protected void onResume(){
@@ -90,9 +84,6 @@ public class Home extends Activity implements UpdateData {
 		String lastCheck = new SimpleDateFormat("yyyy-MM-dd HH").format(now); 
 		return (lastCheck.compareTo(lastUpdated) >  0)? true:false; 
 	}
-
-
-
-
+	
 }
 
