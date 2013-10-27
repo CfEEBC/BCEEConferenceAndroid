@@ -15,24 +15,26 @@
         android:src="@drawable/bccfee_logo_rgb_hires" />
 
     <TextView
-        android:id="@+id/conferenceGeneralSurvey"
+        android:id="@+id/welcomeB1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcomeIV1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Conference Survey"
+        android:layout_alignBaseline="@+id/conferenceGeneralSurvey"
+        android:layout_alignBottom="@+id/conferenceGeneralSurvey"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="23dp"
+        android:text="Enter"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#31913D" />
 
     <TextView
-        android:id="@+id/welcomeB1"
+        android:id="@+id/conferenceGeneralSurvey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/welcomeIV1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="64dp"
-        android:text="Enter"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="34dp"
+        android:layout_marginRight="21dp"
+        android:text="Conference Survey"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#31913D" />
 
