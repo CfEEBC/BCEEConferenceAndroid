@@ -61,7 +61,7 @@ public class DataCentre {
 		return arr;
 	}
 
-	
+
 	/**
 	 * Find the ConferenceModel by startTime and name 
 	 * @param start Conference startTime
@@ -95,25 +95,30 @@ public class DataCentre {
 		@Override
 		protected Void doInBackground(String... arg0) {
 			HttpClient client = new DefaultHttpClient();  
-			HttpGet httpget = new HttpGet(arg0[0]);
+			HttpGet needUpdate = new HttpGet("http://bceeconference.appspot.com/machineMeta");			
+			HttpGet getData = new HttpGet(arg0[0]);
 			ResponseHandler<String> handler = new BasicResponseHandler();
 			try {
-				String jsonString = client.execute(httpget,handler);
-				JSONArray arr = new JSONArray(jsonString);
-				//  gets the fields 
-				for(int i=0;i<arr.length();i++){
-					JSONObject obj = (JSONObject) arr.get(i);
-					String name = (String) obj.get("session_name");
-					String location = (String) obj.get("location");
-					// truncate strings into "MM-DD hh:mm"
-					String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
-					String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
-					String descrip = obj.getString("description");
-					String speakers = obj.getString("speakers");
-					String bio = obj.getString("biography");
-					String survey = httpCheck(obj.getString("survey_link"));
-					ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
-					models.add(c); 
+				String updateString = client.execute(needUpdate,handler);
+				String lastUpdate = new JSONObject(updateString).getString("last_update");
+				if(arg0[1].equals("START") || arg0[1].compareTo(lastUpdate) > 0 || !(models.size() >0)){
+					String jsonString = client.execute(getData,handler);
+					JSONArray arr = new JSONArray(jsonString);
+					//  gets the fields 
+					for(int i=0;i<arr.length();i++){
+						JSONObject obj = (JSONObject) arr.get(i);
+						String name = (String) obj.get("session_name");
+						String location = (String) obj.get("location");
+						// truncate strings into "MM-DD hh:mm"
+						String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
+						String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
+						String descrip = obj.getString("description");
+						String speakers = obj.getString("speakers");
+						String bio = obj.getString("biography");
+						String survey = httpCheck(obj.getString("survey_link"));
+						ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
+						models.add(c); 
+					}
 				}
 			} catch (ClientProtocolException e) {
 				e.printStackTrace();
@@ -126,7 +131,7 @@ public class DataCentre {
 		}
 
 	}
-	
+
 	/**
 	 * Helper method that checks if the string url has http header
 	 * @param s the url string
@@ -140,3 +145,4 @@ public class DataCentre {
 	}
 
 }
+
