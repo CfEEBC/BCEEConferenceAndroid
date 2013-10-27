@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.View;
 import android.webkit.URLUtil;
@@ -33,19 +34,20 @@ public class Conferences extends Activity {
 		// TODO Auto-generated method stub
 		
 		TextView name = (TextView) findViewById(R.id.conferencesName);
-		name.setText("Name:     " + c.getName());
+		name.setText("NAME:     " + c.getName());
+		//name.setText(Html.fromHtml("<strong>Name     :</strong>") + c.getName());	
 		TextView descrip = (TextView) findViewById(R.id.conferencesDescription);
-		descrip.setText("Description:     " + c.getDescription());
+		descrip.setText("DESCRIPTION:     " + c.getDescription());
 		TextView bio = (TextView) findViewById(R.id.conferencesBiography);
-		bio.setText("Biography:     " + c.getBiography());
+		bio.setText("BIOGRAPHY:     " + c.getBiography());
 		TextView speakers = (TextView) findViewById(R.id.conferencesSpeakers);
-		speakers.setText("Speakers:     " + c.getSpeakers());
+		speakers.setText("SPEAKERS:     " + c.getSpeakers());
 		TextView sTime = (TextView) findViewById(R.id.conferencesSTime);
-		sTime.setText("Starting Time:     " + c.getSTART_TIME());
+		sTime.setText("STARTING TIME:     " + c.getSTART_TIME());
 		TextView eTime = (TextView) findViewById(R.id.conferencesETime);
-		eTime.setText("Ending Time:     " + c.getEND_TIME());
+		eTime.setText("ENDING TIME:     " + c.getEND_TIME());
 		TextView location = (TextView) findViewById(R.id.conferencesLocation);
-		location.setText("Location:     " + c.getLocation());
+		location.setText("LOCATION:     " + c.getLocation());
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
 		surveyButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -54,6 +56,7 @@ public class Conferences extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				System.out.println("the conference url : " + c.getSURVEY_LINK());
 				if(!URLUtil.isValidUrl(c.getSURVEY_LINK())){
 					Toast.makeText(getApplicationContext(), "Invalid URL, could not find " + c.getSURVEY_LINK(), Toast.LENGTH_LONG).show();
 					return;

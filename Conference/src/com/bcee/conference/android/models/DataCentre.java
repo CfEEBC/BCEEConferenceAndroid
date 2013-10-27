@@ -98,6 +98,7 @@ public class DataCentre {
 						String speakers = obj.getString("speakers");
 						String bio = obj.getString("biography");
 						String survey = httpCheck(obj.getString("survey_link"));
+						//String survey = obj.getString("survey_link");
 						ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
 						System.out.println(models==null);
 						models.add(c); 
@@ -123,7 +124,8 @@ public class DataCentre {
 	 * @return the url string with if it has a proper http header; otherwise add the header 
 	 */
 	private static String httpCheck(String s){
-		if(s.substring(0,6).equals("http://") || s.substring(0,7).equals("https://") )
+		System.out.println("url : " + s);
+		if(s.substring(0,8).equals("https://") || s.substring(0,7).equals("http://"))
 			return s;
 		else return ("http://" + s);
 	}
