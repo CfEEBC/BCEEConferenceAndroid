@@ -34,19 +34,20 @@ public class Conferences extends Activity {
 		// TODO Auto-generated method stub
 		
 		TextView name = (TextView) findViewById(R.id.conferencesName);
-		name.setText("NAME:     " + c.getName());
+		//name.setText("Name:     " + c.getName());
+		name.setText(c.getName());
 		TextView descrip = (TextView) findViewById(R.id.conferencesDescription);
-		descrip.setText("DESCRIPTION:     " + c.getDescription());
+		descrip.setText("Description:     " + c.getDescription());
 		TextView bio = (TextView) findViewById(R.id.conferencesBiography);
-		bio.setText("BIOGRAPHY:     " + c.getBiography());
+		bio.setText("Biography:     " + c.getBiography());
 		TextView speakers = (TextView) findViewById(R.id.conferencesSpeakers);
-		speakers.setText("SPEAKERS:     " + c.getSpeakers());
+		speakers.setText("Speakers:     " + c.getSpeakers());
 		TextView sTime = (TextView) findViewById(R.id.conferencesSTime);
-		sTime.setText("STARTING TIME:     " + c.getSTART_TIME());
+		sTime.setText("Starting Time:     " + c.getSTART_TIME());
 		TextView eTime = (TextView) findViewById(R.id.conferencesETime);
-		eTime.setText("ENDING TIME:     " + c.getEND_TIME());
+		eTime.setText("Ending Time:     " + c.getEND_TIME());
 		TextView location = (TextView) findViewById(R.id.conferencesLocation);
-		location.setText("LOCATION:     " + c.getLocation());
+		location.setText("Location:     " + c.getLocation());
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
 		surveyButton.setOnClickListener(new View.OnClickListener() {
 			

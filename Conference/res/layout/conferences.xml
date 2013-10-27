@@ -15,29 +15,43 @@
             android:layout_height="fill_parent"
             android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/conferencesName"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="TextView" />
+                android:id="@+id/rl1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:id="@+id/name"
+                    android:text="Name: " />
+                    
+                <TextView
+                    android:layout_toRightOf="@+id/name"
+                    android:id="@+id/conferencesName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/conferencesSTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/rl1"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/conferencesName"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/conferencesETime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/conferencesSTime"
+                android:layout_centerHorizontal="true"
                 android:text="TextView" />
-            
+
             <TextView
                 android:id="@+id/conferencesLocation"
                 android:layout_width="wrap_content"
@@ -51,27 +65,27 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesLocation"
                 android:text="TextView" />
-            
+
             <TextView
                 android:id="@+id/conferencesBiography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesSpeakers"
                 android:text="TextView" />
-            
+
             <TextView
                 android:id="@+id/conferencesDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/conferencesBiography"
                 android:text="TextView" />
-            
+
             <Button
                 android:id="@+id/conferencesB1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/conferencesDescription"
+                android:layout_centerHorizontal="true"
                 android:text="Survey" />
         </RelativeLayout>
     </ScrollView>

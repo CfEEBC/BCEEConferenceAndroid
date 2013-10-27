@@ -27,14 +27,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.bcee.conference.android.Sessions"
-            android:label="@string/title_activity_sessions" >
-        </activity>
-        <activity
-            android:name="com.bcee.conference.android.List"
-            android:label="@string/title_activity_list" >
-        </activity>
-        <activity
             android:name="com.bcee.conference.android.ExpandableList"
             android:label="@string/title_activity_expandable_list" >
         </activity>
