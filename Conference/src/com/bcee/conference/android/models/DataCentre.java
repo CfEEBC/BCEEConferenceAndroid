@@ -29,6 +29,8 @@ import android.util.Log;
  */
 public class DataCentre {
 
+	private static final String JSON_URL = "http://bceeconference.appspot.com/machine";
+	
 	/**
 	 * the DataCentre
 	 */
@@ -74,7 +76,7 @@ public class DataCentre {
 	 */
 	public static void parseData(){
 		HttpClient client = new DefaultHttpClient();  
-		String url = "http://bceeconference.appspot.com/machine";   
+		String url = JSON_URL;   
 		HttpGet httpget = new HttpGet(url);
 		ResponseHandler<String> handler = new BasicResponseHandler();
 		try{
