@@ -6,11 +6,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class Home extends Activity {
@@ -22,9 +20,6 @@ public class Home extends Activity {
 		setContentView(R.layout.home);
 		DataCentre.createDefaultInstance();
 		initvars();
-
-
-
 	}
 
 	private void initvars() {
