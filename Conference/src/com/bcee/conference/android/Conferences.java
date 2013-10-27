@@ -1,5 +1,7 @@
 package com.bcee.conference.android;
 
+import java.text.DateFormatSymbols;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,7 +32,6 @@ public class Conferences extends Activity {
 	 */
 	private void initvars() {
 		TextView name = (TextView) findViewById(R.id.conferencesName);
-		//name.setText("Name:     " + c.getName());
 		name.setText(c.getName());
 		TextView descrip = (TextView) findViewById(R.id.conferencesDescription);
 		descrip.setText("Description:     " + c.getDescription());
@@ -38,10 +39,8 @@ public class Conferences extends Activity {
 		bio.setText("Biography:     " + c.getBiography());
 		TextView speakers = (TextView) findViewById(R.id.conferencesSpeakers);
 		speakers.setText("Speakers:     " + c.getSpeakers());
-		TextView sTime = (TextView) findViewById(R.id.conferencesSTime);
-		sTime.setText("Starting Time:     " + c.getSTART_TIME());
-		TextView eTime = (TextView) findViewById(R.id.conferencesETime);
-		eTime.setText("Ending Time:     " + c.getEND_TIME());
+		TextView sTime = (TextView) findViewById(R.id.conferencesTime);
+		sTime.setText(extractStartingTime(c.getSTART_TIME())+"~"+c.getEND_TIME());
 		TextView location = (TextView) findViewById(R.id.conferencesLocation);
 		location.setText("Location:     " + c.getLocation());
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
@@ -62,4 +61,14 @@ public class Conferences extends Activity {
 		});
 	}
 
+	private String extractStartingTime(String s){
+		String time = s.substring(6);
+		String month = new DateFormatSymbols().getMonths()[Integer.parseInt(s.substring(0,2))-1];
+		int date = Integer.parseInt(s.substring(3,5));
+		System.out.println(time);
+		System.out.println(month);
+		System.out.println(date);
+		return month + " " + date + ",  " + time;
+	}
+	
 }
