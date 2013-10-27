@@ -5,6 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_expandable_list">Sessions</string>
     <string name="title_activity_conferences">Session Detail</string>
+    <string name="enter_button">Session Schedule</string>
     <string name="textview_string">TextView</string>
+    <string name="general_survey">Conference Survey</string>
+    <string name="session_survey">Complete Survey</string>
 
 </resources>

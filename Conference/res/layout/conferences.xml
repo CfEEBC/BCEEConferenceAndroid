@@ -8,7 +8,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:padding="30sp" >
+        android:paddingLeft="30sp" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -19,7 +19,9 @@
                 android:id="@+id/conferencesName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5sp"
+                android:paddingTop="15sp"
+                android:paddingLeft="5sp"
+                android:paddingBottom="5sp"
                 android:text="@string/textview_string"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -83,7 +85,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/text_colour_orange"
                 android:background="@android:color/transparent"
-                android:text="Complete Survey"/>
+                android:text="@string/session_survey"/>
         </RelativeLayout>
     </ScrollView>
 

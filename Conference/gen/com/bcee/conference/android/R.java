@@ -11,10 +11,12 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int exp_list_back=0x7f040003;
-        public static final int splash_background=0x7f040001;
+        public static final int exp_list_back=0x7f040005;
+        public static final int expandable_list_view_background=0x7f040001;
+        public static final int splash_background=0x7f040002;
         public static final int text_colour_orange=0x7f040000;
-        public static final int time_text=0x7f040002;
+        public static final int time_text=0x7f040003;
+        public static final int white=0x7f040004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -35,7 +37,7 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f09000e;
-        public static final int conferenceGeneralSurvey=0x7f09000b;
+        public static final int conferenceGeneralSurvey=0x7f09000a;
         public static final int conferencesB1=0x7f090007;
         public static final int conferencesBiography=0x7f090006;
         public static final int conferencesDes=0x7f090003;
@@ -47,7 +49,7 @@ public final class R {
         public static final int expandableELV1=0x7f090008;
         public static final int lblListHeader=0x7f09000c;
         public static final int lblListItem=0x7f09000d;
-        public static final int welcomeB1=0x7f09000a;
+        public static final int welcomeB1=0x7f09000b;
         public static final int welcomeIV1=0x7f090009;
     }
     public static final class layout {
@@ -67,7 +69,10 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int textview_string=0x7f060004;
+        public static final int enter_button=0x7f060004;
+        public static final int general_survey=0x7f060006;
+        public static final int session_survey=0x7f060007;
+        public static final int textview_string=0x7f060005;
         public static final int title_activity_conferences=0x7f060003;
         public static final int title_activity_expandable_list=0x7f060002;
     }

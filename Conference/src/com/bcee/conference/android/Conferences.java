@@ -14,6 +14,10 @@ import android.widget.Toast;
 
 import com.bcee.conference.android.models.ConferenceModel;
 
+/**
+ * Displays the information of a ConferenceModel
+ *
+ */
 public class Conferences extends Activity {
 
 	private ConferenceModel c;
@@ -40,7 +44,7 @@ public class Conferences extends Activity {
 		TextView speakers = (TextView) findViewById(R.id.conferencesSpeakers);
 		speakers.setText(c.getSpeakers());
 		TextView sTime = (TextView) findViewById(R.id.conferencesTime);
-		sTime.setText(extractStartingTime(c.getSTART_TIME())+"~"+c.getEND_TIME().substring(6));
+		sTime.setText(extractStartingTime(c.getSTART_TIME())+"-"+c.getEND_TIME().substring(6));
 		TextView location = (TextView) findViewById(R.id.conferencesLocation);
 		location.setText(c.getLocation());
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
@@ -61,6 +65,11 @@ public class Conferences extends Activity {
 		});
 	}
 
+	/**
+	 * 
+	 * @param s time in MM-DD format
+	 * @return time in Month, hh:mm
+	 */
 	private String extractStartingTime(String s){
 		String time = s.substring(6);
 		String month = new DateFormatSymbols().getMonths()[Integer.parseInt(s.substring(0,2))-1];
