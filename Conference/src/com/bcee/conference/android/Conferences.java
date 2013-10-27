@@ -66,6 +66,7 @@ public class Conferences extends Activity {
 	}
 
 	/**
+	 * Extracts the parsed time into a readable format
 	 * 
 	 * @param s time in MM-DD format
 	 * @return time in Month, hh:mm
