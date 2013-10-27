@@ -77,8 +77,6 @@ public class DataCentre {
 		String url = JSON_URL;   
 		final HttpGet httpget = new HttpGet(url);
 		final ResponseHandler<String> handler = new BasicResponseHandler();
-		//try{
-		//final String jsonString ="";
 		new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -96,9 +94,7 @@ public class DataCentre {
 						String speakers = obj.getString("speakers");
 						String bio = obj.getString("biography");
 						String survey = httpCheck(obj.getString("survey_link"));
-						//String survey = obj.getString("survey_link");
 						ConferenceModel c = new ConferenceModel(name,descrip,location,speakers,bio,start,end,survey);
-						System.out.println(models==null);
 						models.add(c); 
 					}
 				} catch (ClientProtocolException e) {
@@ -111,7 +107,6 @@ public class DataCentre {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
-
 			}
 		}).start();
 	}

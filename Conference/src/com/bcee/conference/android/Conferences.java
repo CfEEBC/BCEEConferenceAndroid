@@ -35,7 +35,6 @@ public class Conferences extends Activity {
 		
 		TextView name = (TextView) findViewById(R.id.conferencesName);
 		name.setText("NAME:     " + c.getName());
-		//name.setText(Html.fromHtml("<strong>Name     :</strong>") + c.getName());	
 		TextView descrip = (TextView) findViewById(R.id.conferencesDescription);
 		descrip.setText("DESCRIPTION:     " + c.getDescription());
 		TextView bio = (TextView) findViewById(R.id.conferencesBiography);
@@ -56,7 +55,6 @@ public class Conferences extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				System.out.println("the conference url : " + c.getSURVEY_LINK());
 				if(!URLUtil.isValidUrl(c.getSURVEY_LINK())){
 					Toast.makeText(getApplicationContext(), "Invalid URL, could not find " + c.getSURVEY_LINK(), Toast.LENGTH_LONG).show();
 					return;

@@ -37,45 +37,41 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/conferencesSTime"
                 android:text="TextView" />
-
-            <TextView
-                android:id="@+id/conferencesDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/conferencesETime"
-                android:text="TextView" />
-
+            
             <TextView
                 android:id="@+id/conferencesLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/conferencesDescription"
+                android:layout_below="@+id/conferencesETime"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/conferencesSpeakers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/conferencesLocation"
                 android:text="TextView" />
-
+            
             <TextView
                 android:id="@+id/conferencesBiography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/conferencesSpeakers"
                 android:text="TextView" />
-
+            
+            <TextView
+                android:id="@+id/conferencesDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/conferencesBiography"
+                android:text="TextView" />
+            
             <Button
                 android:id="@+id/conferencesB1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/conferencesBiography"
+                android:layout_below="@+id/conferencesDescription"
                 android:text="Survey" />
         </RelativeLayout>
     </ScrollView>
