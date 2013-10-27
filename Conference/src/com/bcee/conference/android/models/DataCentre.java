@@ -23,8 +23,6 @@ import android.util.Log;
  * 
  * Data Centre that stores all ConferenceModels with the information parsed from server and provides methods to 
  * access the data 
- * 
- * @author 
  *
  */
 public class DataCentre {
@@ -156,7 +154,5 @@ public class DataCentre {
 		}
 		return s;
 	}
-
-
 
 }
