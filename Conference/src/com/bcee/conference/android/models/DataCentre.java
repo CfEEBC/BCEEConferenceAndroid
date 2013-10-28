@@ -98,13 +98,10 @@ public class DataCentre {
 		@Override
 		protected Void doInBackground(String... arg0) {
 			HttpClient client = new DefaultHttpClient();  
-			HttpGet needUpdate = new HttpGet("http://bceeconference.appspot.com/machineMeta");			
 			HttpGet getData = new HttpGet(arg0[0]);
 			ResponseHandler<String> handler = new BasicResponseHandler();
 			try {
-				String updateString = client.execute(needUpdate,handler);
-				String lastUpdate = new JSONObject(updateString).getString("last_update");
-				if(arg0[1].equals("START") || arg0[1].compareTo(lastUpdate) > 0 || !(models.size() >0)){
+				if(!(models.size() >0)){
 					String jsonString = client.execute(getData,handler);
 					JSONArray arr = new JSONArray(jsonString);
 					//  gets the fields 
@@ -146,6 +143,10 @@ public class DataCentre {
 			return s;
 		else return ("http://" + s);
 	}
+
+
+
+
 
 }
 
