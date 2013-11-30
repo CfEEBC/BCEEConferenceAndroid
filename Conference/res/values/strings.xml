@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">BCCEE Conference</string>
+    <string name="app_name">CDC 2014</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_expandable_list">Sessions</string>
     <string name="title_activity_conferences">Session Detail</string>

@@ -33,11 +33,12 @@ public final class R {
         public static final int bccfee_logo_rgb_lowres=0x7f020001;
         public static final int bccfee_logo_rgb_medres=0x7f020002;
         public static final int ic_launcher=0x7f020003;
-        public static final int logo=0x7f020004;
+        public static final int letterhead_logo=0x7f020004;
+        public static final int logo=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int conferenceGeneralSurvey=0x7f09000a;
+        public static final int action_settings=0x7f09000f;
+        public static final int conferenceGeneralSurvey=0x7f090009;
         public static final int conferencesB1=0x7f090007;
         public static final int conferencesBiography=0x7f090006;
         public static final int conferencesDes=0x7f090003;
@@ -47,10 +48,11 @@ public final class R {
         public static final int conferencesSpeakers=0x7f090005;
         public static final int conferencesTime=0x7f090002;
         public static final int expandableELV1=0x7f090008;
-        public static final int lblListHeader=0x7f09000c;
-        public static final int lblListItem=0x7f09000d;
-        public static final int welcomeB1=0x7f09000b;
-        public static final int welcomeIV1=0x7f090009;
+        public static final int lblListHeader=0x7f09000d;
+        public static final int lblListItem=0x7f09000e;
+        public static final int welcomeB1=0x7f09000a;
+        public static final int welcomeIV1=0x7f09000c;
+        public static final int welcomeIV2=0x7f09000b;
     }
     public static final class layout {
         public static final int conferences=0x7f030000;

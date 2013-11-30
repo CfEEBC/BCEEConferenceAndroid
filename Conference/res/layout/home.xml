@@ -5,22 +5,14 @@
     android:background="@color/splash_background"
     tools:context=".Home" >
 
-    <ImageView
-        android:id="@+id/welcomeIV1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/bccfee_logo_rgb_hires" />
-    
     <TextView
         android:id="@+id/conferenceGeneralSurvey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/general_survey" 
         android:padding="20sp"
+        android:text="@string/general_survey"
         android:textColor="@color/text_colour_orange" />
 
     <TextView
@@ -29,10 +21,28 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/conferenceGeneralSurvey"
         android:layout_centerHorizontal="true"
-        android:paddingTop="20sp"
         android:paddingBottom="30sp"
+        android:paddingTop="20sp"
         android:text="@string/enter_button"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/text_colour_orange" />
+
+    <ImageView
+        android:id="@+id/welcomeIV2"
+        android:layout_width="wrap_content"
+        android:layout_height="200sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:src="@drawable/letterhead_logo" />
+
+    <ImageView
+        android:id="@+id/welcomeIV1"
+        android:layout_width="250sp"
+        android:layout_height="150sp"
+        android:layout_below="@+id/welcomeIV2"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bccfee_logo_rgb_hires" />
 
 </RelativeLayout>

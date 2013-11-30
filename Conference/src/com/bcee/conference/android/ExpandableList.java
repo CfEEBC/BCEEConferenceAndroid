@@ -60,7 +60,7 @@ public class ExpandableList extends Activity {
 	}
 
 	/**
-	 * Class to handle the ExpandableListAdapte
+	 * Class to handle the ExpandableListAdapter
 	 * 
 	 * @author http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
 	 *

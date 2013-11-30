@@ -1,11 +1,12 @@
 package com.bcee.conference.android.models;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -81,10 +82,18 @@ public class DataCentre {
 	 * Get all the startTime as a collection of strings
 	 * @return all startTime as collection of strings
 	 */
-	public Set<String> getStartTimes(){
-		Set<String> s = new TreeSet<String>();
+	public List<String> getStartTimes(){
+		List<String> s = new ArrayList<String>();
 		for(ConferenceModel c:models){
-			s.add(c.getSTART_TIME());
+			try {
+				Date d = new SimpleDateFormat("yyyy-MM-DD HH:mm").parse(c.getSTART_TIME());
+				String date = new SimpleDateFormat("EEEE").format(d);
+				s.add(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//s.add(c.getSTART_TIME());
 		}
 		return s;
 	}
@@ -110,7 +119,8 @@ public class DataCentre {
 						String name = (String) obj.get("session_name");
 						String location = (String) obj.get("location");
 						// truncate strings into "MM-DD hh:mm"
-						String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
+						String start = obj.getString("stime").substring(0,obj.getString("stime").length()-3);
+						//String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
 						String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
 						String descrip = obj.getString("description");
 						String speakers = obj.getString("speakers");

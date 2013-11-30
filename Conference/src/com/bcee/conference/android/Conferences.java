@@ -44,7 +44,8 @@ public class Conferences extends Activity {
 		TextView speakers = (TextView) findViewById(R.id.conferencesSpeakers);
 		speakers.setText(c.getSpeakers());
 		TextView sTime = (TextView) findViewById(R.id.conferencesTime);
-		sTime.setText(extractStartingTime(c.getSTART_TIME())+"-"+c.getEND_TIME().substring(6));
+		sTime.setText(c.getSTART_TIME());
+		//sTime.setText(extractStartingTime(c.getSTART_TIME())+"-"+c.getEND_TIME().substring(6));
 		TextView location = (TextView) findViewById(R.id.conferencesLocation);
 		location.setText(c.getLocation());
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
