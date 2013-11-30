@@ -1,6 +1,11 @@
 package com.bcee.conference.android;
 
-import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,6 +30,7 @@ public class ExpandableList extends Activity {
 	private DataCentre dc = DataCentre.createDefaultInstance();
 	private List<String> categories;
 	private LinkedHashMap<String,List<String>> sessions;
+	private List<String> original;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +41,25 @@ public class ExpandableList extends Activity {
 
 	private void initvars() {
 		categories = new ArrayList<String>();
+		original = new ArrayList<String>();
 		sessions = new LinkedHashMap<String,List<String>>();
 		for(String s:dc.getStartTimes()){	
-			sessions.put(s,DataCentre.getDataByTime(s));
-			categories.add(s);
+			//sessions.put(s,DataCentre.getDataByTime(s));
+			try {
+				Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(s);
+				String date = new SimpleDateFormat("EEEE HH:mm").format(d);
+				sessions.put(date,DataCentre.getDataByTime(s));
+				categories.add(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			original.add(s);
 		}
 		
 		elv = (ExpandableListView) findViewById(R.id.expandableELV1);
 		adapter = new TimeExpandableListAdapter(this, categories, sessions);
+		//adapter = new TimeExpandableListAdapter(this, format, sessions);
 		elv.setAdapter(adapter);
 		
 		elv.setOnChildClickListener(new OnChildClickListener(){
@@ -50,7 +67,8 @@ public class ExpandableList extends Activity {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
                     int groupPosition, int childPosition, long id) {
-				ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
+				//ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
+				ConferenceModel c = dc.findConference(original.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
 				Intent i = new Intent(v.getContext(),Conferences.class);
 				i.putExtra("conference", c);
 				startActivityForResult(i,0);

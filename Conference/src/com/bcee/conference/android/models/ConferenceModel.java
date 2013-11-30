@@ -164,7 +164,6 @@ public class ConferenceModel implements Comparable<ConferenceModel>, Parcelable{
 		return true;
 	}
 	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

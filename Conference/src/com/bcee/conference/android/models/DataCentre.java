@@ -5,8 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -19,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 /**
  * 
@@ -62,7 +66,6 @@ public class DataCentre {
 		return arr;
 	}
 
-
 	/**
 	 * Find the ConferenceModel by startTime and name 
 	 * @param start Conference startTime
@@ -71,7 +74,8 @@ public class DataCentre {
 	 */
 	public ConferenceModel findConference(String start, String name){
 		for(ConferenceModel c:models){
-			if(c.getSTART_TIME().equals(start) && c.getName().equals(name)){
+			Log.d("start",start);
+			if(c.getSTART_TIME().equals(start)&&c.getName().equals(name)){
 				return c;
 			}
 		}
@@ -82,18 +86,10 @@ public class DataCentre {
 	 * Get all the startTime as a collection of strings
 	 * @return all startTime as collection of strings
 	 */
-	public List<String> getStartTimes(){
-		List<String> s = new ArrayList<String>();
+	public Set<String> getStartTimes(){
+		Set<String> s = new TreeSet<String>();
 		for(ConferenceModel c:models){
-			try {
-				Date d = new SimpleDateFormat("yyyy-MM-DD HH:mm").parse(c.getSTART_TIME());
-				String date = new SimpleDateFormat("EEEE").format(d);
-				s.add(date);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			//s.add(c.getSTART_TIME());
+			s.add(c.getSTART_TIME());
 		}
 		return s;
 	}
@@ -118,10 +114,9 @@ public class DataCentre {
 						JSONObject obj = (JSONObject) arr.get(i);
 						String name = (String) obj.get("session_name");
 						String location = (String) obj.get("location");
-						// truncate strings into "MM-DD hh:mm"
+						// truncate strings into "yyyy-MM-DD HH:mm"
 						String start = obj.getString("stime").substring(0,obj.getString("stime").length()-3);
-						//String start = obj.getString("stime").substring(5,obj.getString("stime").length()-3);
-						String end = obj.getString("etime").substring(5,obj.getString("etime").length()-3);
+						String end = obj.getString("etime").substring(0,obj.getString("etime").length()-3);
 						String descrip = obj.getString("description");
 						String speakers = obj.getString("speakers");
 						String bio = obj.getString("biography");
@@ -153,10 +148,5 @@ public class DataCentre {
 			return s;
 		else return ("http://" + s);
 	}
-
-
-
-
-
 }
 
