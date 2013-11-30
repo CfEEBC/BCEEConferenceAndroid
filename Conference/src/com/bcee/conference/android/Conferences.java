@@ -1,6 +1,9 @@
 package com.bcee.conference.android;
 
 import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -45,8 +48,7 @@ public class Conferences extends Activity {
 		TextView speakers = (TextView) findViewById(R.id.conferencesSpeakers);
 		speakers.setText(c.getSpeakers());
 		TextView sTime = (TextView) findViewById(R.id.conferencesTime);
-		sTime.setText(c.getSTART_TIME());
-		//sTime.setText(extractStartingTime(c.getSTART_TIME())+"-"+c.getEND_TIME().substring(6));
+		sTime.setText(extractStartingTime());
 		TextView location = (TextView) findViewById(R.id.conferencesLocation);
 		location.setText(c.getLocation());
 		Button surveyButton = (Button) findViewById(R.id.conferencesB1);
@@ -65,6 +67,22 @@ public class Conferences extends Activity {
 				startActivity(browserIntent);
 			}
 		});
+	}
+
+	private String extractStartingTime() {
+		// TODO Auto-generated method stub
+		/*Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(s);
+		String date = new SimpleDateFormat("EEEE HH:mm").format(d);*/
+		try {
+			Log.d("month",c.getSTART_TIME());
+			String start = new SimpleDateFormat("MMMMM dd HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:Mm").parse(c.getSTART_TIME()));
+			String end = new SimpleDateFormat("HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(c.getEND_TIME()));
+			return start+"-"+end;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return c.getSTART_TIME();
+		}
 	}
 
 	/**

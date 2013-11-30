@@ -74,7 +74,6 @@ public class DataCentre {
 	 */
 	public ConferenceModel findConference(String start, String name){
 		for(ConferenceModel c:models){
-			Log.d("start",start);
 			if(c.getSTART_TIME().equals(start)&&c.getName().equals(name)){
 				return c;
 			}

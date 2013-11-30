@@ -44,7 +44,6 @@ public class ExpandableList extends Activity {
 		original = new ArrayList<String>();
 		sessions = new LinkedHashMap<String,List<String>>();
 		for(String s:dc.getStartTimes()){	
-			//sessions.put(s,DataCentre.getDataByTime(s));
 			try {
 				Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(s);
 				String date = new SimpleDateFormat("EEEE HH:mm").format(d);
@@ -59,7 +58,6 @@ public class ExpandableList extends Activity {
 		
 		elv = (ExpandableListView) findViewById(R.id.expandableELV1);
 		adapter = new TimeExpandableListAdapter(this, categories, sessions);
-		//adapter = new TimeExpandableListAdapter(this, format, sessions);
 		elv.setAdapter(adapter);
 		
 		elv.setOnChildClickListener(new OnChildClickListener(){
