@@ -40,6 +40,14 @@ public class ExpandableList extends Activity {
 		initvars();
 	}
 
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		/** @author http://androidforbegineers.blogspot.ca/2013/08/android-slide-animation-effect-between.html*/
+		this.overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+	}
+
 	private void initvars() {
 		categories = new ArrayList<String>();
 		original = new ArrayList<String>();

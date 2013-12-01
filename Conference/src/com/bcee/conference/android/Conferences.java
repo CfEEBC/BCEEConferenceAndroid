@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Button;
@@ -28,6 +27,7 @@ public class Conferences extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
 		setContentView(R.layout.conferences);
 		Intent i = getIntent();
 		c = (ConferenceModel) i.getParcelableExtra("conference");
@@ -71,7 +71,6 @@ public class Conferences extends Activity {
 	private String extractStartingTime() {
 		// TODO Auto-generated method stub
 		try {
-			Log.d("month",c.getSTART_TIME());
 			String start = new SimpleDateFormat("MMMM dd HH:mm",Locale.CANADA).format(new SimpleDateFormat("yyyy-MM-dd HH:mm",
 					Locale.CANADA).parse(c.getSTART_TIME()));
 			String end = new SimpleDateFormat("HH:mm",Locale.CANADA).format(new SimpleDateFormat("yyyy-MM-dd HH:mm",
