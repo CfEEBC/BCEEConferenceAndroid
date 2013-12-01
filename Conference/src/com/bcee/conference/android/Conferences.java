@@ -65,7 +65,7 @@ public class Conferences extends Activity {
 				}
 				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(c.getSURVEY_LINK()));
 				startActivity(browserIntent);
-			}
+			} 
 		});
 	}
 
@@ -75,7 +75,7 @@ public class Conferences extends Activity {
 		String date = new SimpleDateFormat("EEEE HH:mm").format(d);*/
 		try {
 			Log.d("month",c.getSTART_TIME());
-			String start = new SimpleDateFormat("MMMMM dd HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(c.getSTART_TIME()));
+			String start = new SimpleDateFormat("MMMM dd HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(c.getSTART_TIME()));
 			String end = new SimpleDateFormat("HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(c.getEND_TIME()));
 			return start+"-"+end;
 		} catch (ParseException e) {
