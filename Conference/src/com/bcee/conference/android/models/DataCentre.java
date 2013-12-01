@@ -1,12 +1,8 @@
 package com.bcee.conference.android.models;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -22,7 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 /**
  * 
@@ -68,6 +63,7 @@ public class DataCentre {
 
 	/**
 	 * Find the ConferenceModel by startTime and name 
+	 * 
 	 * @param start Conference startTime
 	 * @param name  Conference name 
 	 * @return the ConferenceModel with the corresponding startTime and name when found; otherwise return null
@@ -83,6 +79,7 @@ public class DataCentre {
 
 	/**
 	 * Get all the startTime as a collection of strings
+	 * 
 	 * @return all startTime as collection of strings
 	 */
 	public Set<String> getStartTimes(){
@@ -137,6 +134,7 @@ public class DataCentre {
 
 	/**
 	 * Helper method that checks if the string url has http header
+	 * 
 	 * @param s the url string
 	 * @return the url string with if it has a proper http header; otherwise add the header 
 	 */

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Context;
@@ -45,8 +46,8 @@ public class ExpandableList extends Activity {
 		sessions = new LinkedHashMap<String,List<String>>();
 		for(String s:dc.getStartTimes()){	
 			try {
-				Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(s);
-				String date = new SimpleDateFormat("EEEE HH:mm").format(d);
+				Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.CANADA).parse(s);
+				String date = new SimpleDateFormat("EEEE HH:mm",Locale.CANADA).format(d);
 				sessions.put(date,DataCentre.getDataByTime(s));
 				categories.add(date);
 			} catch (ParseException e) {
@@ -65,7 +66,6 @@ public class ExpandableList extends Activity {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
                     int groupPosition, int childPosition, long id) {
-				//ConferenceModel c = dc.findConference(categories.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
 				ConferenceModel c = dc.findConference(original.get(groupPosition), sessions.get(categories.get(groupPosition)).get(childPosition));
 				Intent i = new Intent(v.getContext(),Conferences.class);
 				i.putExtra("conference", c);

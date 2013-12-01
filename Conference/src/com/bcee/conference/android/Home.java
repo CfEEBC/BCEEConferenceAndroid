@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -33,8 +32,11 @@ public class Home extends Activity{
 		initvars();
 	}
 	
-	
-	/*    http://stackoverflow.com/questions/9570237/android-check-internet-connection  */
+	/**
+	 * @author http://stackoverflow.com/questions/9570237/android-check-internet-connection
+	 * 
+	 * @return whether device is connected to network
+	 */
 	private boolean isNetworkConnected() {
 		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		return( cm.getActiveNetworkInfo() != null);

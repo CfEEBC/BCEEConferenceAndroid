@@ -7,13 +7,13 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="30sp" >
+        android:layout_alignParentLeft="true" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingLeft="10sp" >
 
             <TextView
                 android:id="@+id/conferencesName"

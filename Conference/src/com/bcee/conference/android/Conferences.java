@@ -1,9 +1,8 @@
 package com.bcee.conference.android;
 
-import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -71,31 +70,18 @@ public class Conferences extends Activity {
 
 	private String extractStartingTime() {
 		// TODO Auto-generated method stub
-		/*Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(s);
-		String date = new SimpleDateFormat("EEEE HH:mm").format(d);*/
 		try {
 			Log.d("month",c.getSTART_TIME());
-			String start = new SimpleDateFormat("MMMM dd HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(c.getSTART_TIME()));
-			String end = new SimpleDateFormat("HH:mm").format(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(c.getEND_TIME()));
+			String start = new SimpleDateFormat("MMMM dd HH:mm",Locale.CANADA).format(new SimpleDateFormat("yyyy-MM-dd HH:mm",
+					Locale.CANADA).parse(c.getSTART_TIME()));
+			String end = new SimpleDateFormat("HH:mm",Locale.CANADA).format(new SimpleDateFormat("yyyy-MM-dd HH:mm",
+					Locale.CANADA).parse(c.getEND_TIME()));
 			return start+"-"+end;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return c.getSTART_TIME();
 		}
-	}
-
-	/**
-	 * Extracts the parsed time into a readable format
-	 * 
-	 * @param s time in MM-DD format
-	 * @return time in Month, hh:mm
-	 */
-	private String extractStartingTime(String s){
-		String time = s.substring(6);
-		String month = new DateFormatSymbols().getMonths()[Integer.parseInt(s.substring(0,2))-1];
-		int date = Integer.parseInt(s.substring(3,5));
-		return month + " " + date + ",  " + time;
 	}
 	
 }
